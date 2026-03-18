@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Bolos - Doçura & Arte</title>
+    <link rel="stylesheet" href="cardapio.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fa-solid fa-cake-candles icon-logo"></i>
+                <h1>Doçura & Arte</h1>
+            </div>
+            
+            <nav class="user-nav">
+                <!-- Mostraremos o nome logado pelo Google aqui -->
+                <div class="welcome-user">
+                    Olá, <span id="userNameDisplay">Visitante</span>
+                </div>
+                
+                <div class="cart" id="cartBtn" title="Ver Carrinho">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                
+                <button class="logout-btn" onclick="logout()" title="Sair da Conta">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="hero-section">
+            <h2>Nossas Especialidades</h2>
+            <p>Descubra os sabores artesanais feitos com carinho e os melhores ingredientes.</p>
+            <br>
+            <!-- Pequeno alerta estético se o carrinho foi modificado -->
+            <div id="toastMessage" class="toast-message" style="display:none; color: #10b981; font-weight: 500;">
+                <i class="fa-solid fa-check"></i> <span>Produto Adicionado!</span>
+            </div>
+        </section>
+
+        <div class="menu-grid">
+            <!-- Bolo 1 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo Red Velvet" class="cake-img">
+                    <div class="cake-badge">Mais Vendido</div>
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Red Velvet Supremo</h3>
+                        <span class="cake-price">R$ 89,90</span>
+                    </div>
+                    <p class="cake-desc">Massa aveludada com toque de cacau e recheio cremoso de cream cheese.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Red Velvet Supremo', 89.90, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+
+            <!-- Bolo 2 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo de Chocolate Trufado" class="cake-img">
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Chocolate Trufado</h3>
+                        <span class="cake-price">R$ 95,00</span>
+                    </div>
+                    <p class="cake-desc">Bolo denso de chocolate belga recheado com trufa meio amargo.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Chocolate Trufado', 95.00, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+
+            <!-- Bolo 3 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo de Morango" class="cake-img">
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Frescor de Morango</h3>
+                        <span class="cake-price">R$ 78,50</span>
+                    </div>
+                    <p class="cake-desc">Pão de ló leve, creme patissière e morangos frescos.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Frescor de Morango', 78.50, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+
+            <!-- Bolo 4 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo de Limão Siciliano" class="cake-img">
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Limão Siciliano</h3>
+                        <span class="cake-price">R$ 72,00</span>
+                    </div>
+                    <p class="cake-desc">Massa amanteigada cítrica com ganache de limão e merengue.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Limão Siciliano', 72.00, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+
+            <!-- Bolo 5 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo de Cenoura" class="cake-img">
+                    <div class="cake-badge new-badge">Novo</div>
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Cenoura Vulcão</h3>
+                        <span class="cake-price">R$ 55,00</span>
+                    </div>
+                    <p class="cake-desc">O clássico bolo de cenoura caseiro com cobertura farta de brigadeiro.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Cenoura Vulcão', 55.00, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+
+            <!-- Bolo 6 -->
+            <article class="cake-card">
+                <div class="cake-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bolo de Pistache" class="cake-img">
+                </div>
+                <div class="cake-info">
+                    <div class="cake-header">
+                        <h3>Pistache Premium</h3>
+                        <span class="cake-price">R$ 115,00</span>
+                    </div>
+                    <p class="cake-desc">Massa especial com recheio intenso de creme de pistache importado.</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Pistache Premium', 115.00, this)"><i class="fa-solid fa-plus"></i> Adicionar</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Modal do Carrinho de Compras -->
+    <div class="cart-modal-overlay" id="cartModal">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>Cesta de Compras</h2>
+                <button class="close-cart" onclick="closeCart()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="cart-items" id="cartItemsContainer">
+                <!-- Produtos entram aqui dinamicamente -->
+                <div class="empty-cart-msg">Sua cesta está vazia 🍰</div>
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="cartTotalValue">R$ 0,00</span>
+                </div>
+                <!-- WhatsApp Ckheckout Button -->
+                <button class="checkout-btn" id="whatsappCheckoutBtn" onclick="checkoutWhatsApp()" disabled>
+                    <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Doçura & Arte. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- LOGICA DO APLICATIVO -->
+    <script>
+        // --- 1. IDENTIFICAÇÃO DO USUÁRIO ---
+        // Recupera o nome do Google armazenado no script.js, ou cai pro Visitante
+        const userNameFull = localStorage.getItem('userName') || 'Visitante Encantador';
+        // Pega apenas o primeiro nome p/ ser amigavel
+        const firstName = userNameFull.split(' ')[0]; 
+        document.getElementById('userNameDisplay').textContent = firstName;
+
+        function logout() {
+            localStorage.removeItem('userName');
+            // Como é simulação visual simples, apenas limpamos o log e votlamos.
+            window.location.href = 'index.html';
+        }
+
+        // --- 2. SISTEMA DE CARRINHO ---
+        let cartList = [];
+        const waNumber = "5511999999999"; // Fictício WhatsApp
+
+        const cartCountEl = document.querySelector('.cart-count');
+        const cartModal = document.getElementById('cartModal');
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const cartTotalValue = document.getElementById('cartTotalValue');
+        const toastMessage = document.getElementById('toastMessage');
+
+        // Abre modal
+        document.getElementById('cartBtn').addEventListener('click', () => {
+            cartModal.classList.add('active');
+            renderCart();
+        });
+        
+        // Fecha modal
+        function closeCart() {
+            cartModal.classList.remove('active');
+        }
+
+        // Fecha modal se clicar no escuro de fora
+        cartModal.addEventListener('click', (e) => {
+            if(e.target === cartModal) closeCart();
+        });
+
+        function formatMoney(value) {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Função de Adicionar ao Carrinho (injetada nos botões dos bolos)
+        function addToCart(name, price, btnElement) {
+            const existingItem = cartList.find(item => item.name === name);
+            if(existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartList.push({ name, price, quantity: 1 });
+            }
+            
+            // Atualiza "Badge" Número de Itens no logo
+            const totalItems = cartList.reduce((acc, item) => acc + item.quantity, 0);
+            cartCountEl.textContent = totalItems;
+            
+            // Efeito visual na bolinha
+            cartCountEl.style.transform = 'scale(1.4)';
+            setTimeout(() => cartCountEl.style.transform = 'scale(1)', 300);
+
+            // Efeito de Toast/Botão
+            const originalHTML = btnElement.innerHTML;
+            btnElement.innerHTML = '<i class="fa-solid fa-check"></i> Adicionado';
+            btnElement.style.backgroundColor = '#10b981';
+            btnElement.style.color = '#fff';
+            btnElement.style.borderColor = '#10b981';
+            
+            toastMessage.style.display = 'block';
+            toastMessage.innerHTML = `<i class="fa-solid fa-check"></i> <span> 1x <b>${name}</b> na cesta!</span>`;
+
+            setTimeout(() => {
+                btnElement.innerHTML = originalHTML;
+                btnElement.style.backgroundColor = '';
+                btnElement.style.color = '';
+                btnElement.style.borderColor = '';
+                toastMessage.style.display = 'none';
+            }, 1500);
+        }
+
+        // Renderiza (Atualiza o view) do Pop-up Lateral do Carrinho
+        function renderCart() {
+            if(cartList.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Sua cesta está vazia 🍰</div>';
+                cartTotalValue.textContent = formatMoney(0);
+                document.getElementById('whatsappCheckoutBtn').disabled = true;
+                return;
+            }
+
+            document.getElementById('whatsappCheckoutBtn').disabled = false;
+            cartItemsContainer.innerHTML = '';
+            
+            let total = 0;
+
+            cartList.forEach((item, index) => {
+                total += item.price * item.quantity;
+                
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item';
+                itemEl.innerHTML = `
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <span>${formatMoney(item.price)}</span>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button onclick="changeQty(${index}, -1)"><i class="fa-solid fa-minus"></i></button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeQty(${index}, 1)"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemEl);
+            });
+
+            cartTotalValue.textContent = formatMoney(total);
+        }
+
+        // Soma/Subtrai Item de Dentro do Carrinho
+        function changeQty(index, delta) {
+            cartList[index].quantity += delta;
+            if(cartList[index].quantity <= 0) {
+                cartList.splice(index, 1);
+            }
+            
+            const totalItems = cartList.reduce((acc, item) => acc + item.quantity, 0);
+            cartCountEl.textContent = totalItems;
+            
+            renderCart();
+        }
+
+        // --- 3. FINALIZAÇÃO WHATSAPP ---
+        function checkoutWhatsApp() {
+            if(cartList.length === 0) return;
+            
+            let totalValue = 0;
+            
+            // Quebras de linha e texto estruturado URL-Encoded para o WhatsApp
+            // %0A = Nova linha | *negrito* | _italico_
+            let orderText = `*Novo Pedido - Doçura & Arte*%0A%0AOlá, meu nome é *${firstName}* e gostaria de realizar o pagamento dos seguintes itens:%0A%0A`;
+            
+            cartList.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                totalValue += itemTotal;
+                orderText += `👉 ${item.quantity}x _${item.name}_ (${formatMoney(itemTotal)})%0A`;
+            });
+            
+            orderText += `%0A💰 *Total da Compra: ${formatMoney(totalValue)}*%0A%0AQual a chave PIX? 🍰😋`;
+            
+            // Abre link oficial do whatsApp (wa.me)
+            const waLink = `https://wa.me/${waNumber}?text=${orderText}`;
+            window.open(waLink, '_blank');
+        }
+    </script>
+</body>
+</html>
