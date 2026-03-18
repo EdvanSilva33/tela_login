@@ -1,16 +1,16 @@
 :root {
-    --bg-color: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.7);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --input-bg: rgba(15, 23, 42, 0.6);
-    --input-border: rgba(255, 255, 255, 0.1);
-    --input-focus: rgba(99, 102, 241, 0.5);
-    --google-btn-bg: #ffffff;
-    --google-btn-text: #3c4043;
-    --google-btn-hover: #f8f9fa;
+    --bg-color: #ec9c06; /* Fundo mais claro e aconchegante (Orange 50) */
+    --card-bg: rgba(226, 195, 169, 0.85); /* Vidro branco bem claro e alegre */
+    --text-main: #1e293b; /* Texto escuro para leitura no fundo claro */
+    --text-muted: #64748b;
+    --primary: #f59e0b; /* Laranja vibrante */
+    --primary-hover: #d97706;
+    --input-bg: rgba(241, 237, 237, 0.9);
+    --input-border: rgba(245, 158, 11, 0.3);
+    --input-focus: rgba(245, 158, 11, 0.6);
+    --google-btn-bg: #be4a4a;
+    --google-btn-text: #1e293b;
+    --google-btn-hover: #f1f5f9;
 }
 
 * {
@@ -53,7 +53,7 @@ body {
 .bubble:nth-child(1) {
     width: 400px;
     height: 400px;
-    background: #4f46e5; /* Índigo */
+    background: #eeedc7; /* Rosa Suave/Doce */
     top: -100px;
     left: -100px;
     animation-delay: 0s;
@@ -62,7 +62,7 @@ body {
 .bubble:nth-child(2) {
     width: 300px;
     height: 300px;
-    background: #ec4899; /* Rosa */
+    background: #fcd34d; /* Amarelo Ensolarado */
     bottom: -50px;
     right: -50px;
     animation-delay: -2s;
@@ -72,7 +72,7 @@ body {
 .bubble:nth-child(3) {
     width: 250px;
     height: 250px;
-    background: #0ea5e9; /* Azul claro */
+    background: #062635; /* Azul Bebê */
     top: 40%;
     left: 60%;
     animation-delay: -5s;
@@ -82,7 +82,7 @@ body {
 .bubble:nth-child(4) {
     width: 350px;
     height: 350px;
-    background: #8b5cf6; /* Violeta */
+    background: #a12121; /* Pink Pastel */
     bottom: 20%;
     left: 10%;
     animation-delay: -7s;
@@ -107,10 +107,10 @@ body {
     background: var(--card-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 24px;
     padding: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.2); /* Sombra quente e leve */
     animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -133,7 +133,7 @@ body {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 8px;
-    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    background: linear-gradient(135deg, #c07e0d 0%, #E11D48 100%); /* Laranja pro Rosa vibrante */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -181,7 +181,7 @@ body {
 }
 
 .input-group input::placeholder {
-    color: rgba(148, 163, 184, 0.5);
+    color: rgba(100, 116, 139, 0.6);
 }
 
 .options-group {
@@ -327,7 +327,7 @@ body {
     padding: 12px;
     background: var(--google-btn-bg);
     color: var(--google-btn-text);
-    border: 1px solid transparent;
+    border: 1px solid #cbd5e1; /* Borda visível no Light Mode */
     border-radius: 12px;
     font-size: 15px;
     font-weight: 600;
